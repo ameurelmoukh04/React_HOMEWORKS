@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import Profil from './components/Content/Profil'
-
+import Table from './components/Table'
+import LoadData from './components/LoadData'
 function App() {
 
   return (
     <>
-      <Profil />
+  <LoadData/>
     </>
   )
 }
