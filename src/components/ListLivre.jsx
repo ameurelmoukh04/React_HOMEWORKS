@@ -3,6 +3,13 @@ import LivreImg from './innerComposants/LivreImg'
 import LivreTitle from './innerComposants/LivreTitle'
 import LivrePrice from './innerComposants/LivrePrice'
 export default class ListLivre extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {selectedGenre : "all"}
+    
+
+  }
   data = [
     {
       "title": "1984", "author": "George Orwell", "publicationYear":
@@ -27,19 +34,46 @@ export default class ListLivre extends Component {
         1988, "genre": "Philosophical Fiction", "rating": 4.7
     }
   ]
+changeGenre =(e) =>{
+  let selectedv = e.target.value;
+this.setState({selectedGenre: selectedv});
+}
   render() {
     return (
       <div style={{width:"100%"}}>
+        <div style={{height:"20vh"}}>
 
-        {this.data.map((livre) => (
-          <div key={livre.title} style={{width:"40%",display:"inline-block"}}>
 
-            <LivreImg />
-            <LivreTitle title={livre.title} />
-            <LivrePrice author={livre.author} />
+          <label htmlFor="genre">Genre : </label>
+          <select name="genre" id="genre" onChange={this.changeGenre} value={this.state.selectedGenre}>
+            <option value="all">all</option>
+            {this.data.map((livre)=>(
+            <option value={livre.genre}>{livre.genre}</option>
+            ))}
+          </select>
 
-          </div>
-        ))}
+        </div>
+        
+        {this.state.selectedGenre === "all" ? (
+  this.data.map((livre) => (
+    <div key={livre.title} style={{ width: "40%", display: "inline-block" }}>
+      <LivreImg />
+      <LivreTitle title={livre.title} />
+      <LivrePrice author={livre.author} />
+    </div>
+  ))
+) : (
+  this.data
+    .filter((livre) => livre.genre === this.state.selectedGenre)
+    .map((livre) => (
+      <div key={livre.title} style={{ width: "40%", display: "inline-block" }}>
+        <LivreImg />
+        <LivreTitle title={livre.title} />
+        <LivrePrice author={livre.author} />
+      </div>
+    ))
+)}
+
         </div>
 
         
