@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Table from './components/Table'
-import LoadData from './components/LoadData'
+import Livre from './components/Livre'
 function App() {
 
   return (
     <>
-  <LoadData/>
+  <Livre />
     </>
   )
 }
