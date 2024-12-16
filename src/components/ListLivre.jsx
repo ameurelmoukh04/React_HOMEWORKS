@@ -29,10 +29,10 @@ export default class ListLivre extends Component {
   ]
   render() {
     return (
-      <div>
+      <div style={{width:"100%"}}>
 
         {this.data.map((livre) => (
-          <div key={livre.title}>
+          <div key={livre.title} style={{width:"40%",display:"inline-block"}}>
 
             <LivreImg />
             <LivreTitle title={livre.title} />
