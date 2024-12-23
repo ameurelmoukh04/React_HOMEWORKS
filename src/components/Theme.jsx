@@ -15,7 +15,7 @@ const Theme = () => {
   }
   return (
     <div>
-      <button onClick={handleTheme}>{theme}</button>
+      <button onClick={handleTheme}>{stored.theme}</button>
     </div>
   )
 }
