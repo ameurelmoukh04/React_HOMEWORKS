@@ -1,15 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import React from 'react'
-import CalculTTC from './class_components/CalculTTC'
-
-
-
+import Home from './components/Home'
 
 function App() {
 
   return (
-    <CalculTTC />
+    <Home />
   )
 }
 
